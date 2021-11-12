@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import Login from './components/login';
+import Cabins from './components/cabins'
 import './App.css';
 
 function App() {
   const baseURL = "https://node-backend-blomstra.herokuapp.com"
-  const [jwt, setJwt] = useState()
+  const [jwt, setJwt] = useState("")
 
   return (
     <div className="App">
@@ -12,7 +13,10 @@ function App() {
         <h1>
          Bookings Program
         </h1>
-        <Login baseURL={baseURL}></Login>
+        {
+          jwt == "" ? <Login baseURL={baseURL} setJwt={setJwt}></Login> : <Cabins setJwt={setJwt}></Cabins>
+        }
+        
       </header>
     </div>
   );

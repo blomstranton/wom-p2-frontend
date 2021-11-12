@@ -20,6 +20,7 @@ function Login(props) {
         axios.post(props.baseURL + "/users/login/", body, config)
           .then(function (response) {
             console.log(response);
+            props.setJwt(response.data["token"])
           })
           .catch(function (error) {
             console.log(error);
