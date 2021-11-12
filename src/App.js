@@ -14,7 +14,7 @@ function App() {
          Bookings Program
         </h1>
         {
-          jwt == "" ? <Login baseURL={baseURL} setJwt={setJwt}></Login> : <Cabins setJwt={setJwt}></Cabins>
+          jwt == "" ? <Login baseURL={baseURL} setJwt={setJwt}></Login> : <Cabins jwt={jwt} setJwt={setJwt}></Cabins>
         }
         
       </header>

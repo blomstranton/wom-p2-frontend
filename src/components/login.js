@@ -4,6 +4,7 @@ function Login(props) {
     
     const emailInput = useRef("")
     const passwordInput = useRef("")
+    const [failedlogin, setfailedLogin] = useState(false)
 
     const login = async() => {
         const config = {
@@ -24,11 +25,13 @@ function Login(props) {
           })
           .catch(function (error) {
             console.log(error);
+            setfailedLogin(true)
           });
     }
 
   return (
     <div className="LoginPage">
+      {failedlogin && <h3>Email eller lösenord är fel</h3>}
         <label>Email</label>
         <input ref={emailInput} typeof="email"></input>
         <br/>
